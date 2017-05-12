@@ -1,0 +1,41 @@
+部署kie-drools-web时候，控制台执行到 
+信息: Using org.drools.persistence.jta.JtaTransactionManagerFactory@1480a7ef
+五月 08, 2017 3:29:04 下午 org.drools.core.util.ServiceDiscoveryImpl discoverFactories
+信息: Discovered kie.conf url=jar:file:/G:/apache-tomcat-7.0.55/webapps/kie-drools-wb/WEB-INF/lib/optaplanner-core-6.5.0.Final.jar!/META-INF/kie.conf
+五月 08, 2017 3:29:04 下午 org.drools.core.util.ServiceDiscoveryImpl processKieAssemblers
+Adding Assembler org.optaplanner.core.impl.solver.kie.KieSolverAssemblerService
+停止
+过几分钟后，继续启动Ok
+
+注意：配置过程中，需要额外再setenv.bat或者setenv.sh添加如下配置项。
+-Dorg.uberfire.async.executor.safemode=true
+否则tomcat启动的时候会报错
+警告: Unable to instantiate EJB Asynchronous Bean. Falling back to Executors' CachedThreadPool.
+javax.naming.NameNotFoundException: Name [module/SimpleAsyncExecutorService] is not bound in this Context. Unable to find [module].
+
+
+璀﹀憡: Unable to instantiate EJB Asynchronous Bean. Falling back to Executors' CachedThreadPool.
+avax.naming.NameNotFoundException: Name [module/SimpleAsyncExecutorService] is not bound in this Context. Unable to find [module].
+       at org.apache.naming.NamingContext.lookup(NamingContext.java:819)
+       at org.apache.naming.NamingContext.lookup(NamingContext.java:167)
+
+另外也需要安装GIT软件，否则TOMCAT启动的时候会报如下错误：
+java.io.IOException: Cannot run program "bash" (in directory "D:\Users\liumaohua977"): CreateProcess error=2, ??????????????????
+
+
+executing transaction with 0 enlisted resource
+
+BTM provides a very good reporting when one tries to commit a transaction withno enlisted resource. These are most probably development errors.
+Adding a flag or a logging strategy that would output the stack trace of thecreation of the transaction as well as the stack trace of the commit of thattransaction would definitely help to spot the actual issue
+
+
+编译btm-2.1.4.me.jar
+[ERROR] org.apache.maven.plugin.compiler.CompilerMojo - /F:/Downloads/drools/btm/target/generated-sources/btm/bitronix/tm/Version.java:[3,50] 类重复: bitronix.t
+m.Version
+[ERROR] org.apache.maven.plugin.compiler.CompilerMojo - /F:/Downloads/drools/btm/src/main/java/bitronix/tm/resource/jdbc/PoolingDataSource.java:[59,8] bitronix.
+tm.resource.jdbc.PoolingDataSource不是抽象的, 并且未覆盖javax.sql.CommonDataSource中的抽象方法getParentLogger()
+[ERROR] org.apache.maven.plugin.compiler.CompilerMojo - /F:/Downloads/drools/btm/src/main/java/bitronix/tm/resource/jdbc/lrc/LrcXADataSource.java:[39,8] bitroni
+x.tm.resource.jdbc.lrc.LrcXADataSource不是抽象的, 并且未覆盖javax.sql.CommonDataSource中的抽象方法getParentLogger()
+[INFO] org.apache.maven.plugin.compiler.CompilerMojo - 3 errors
+
+wildfly-9.0.2 web项目部署详细步骤 
